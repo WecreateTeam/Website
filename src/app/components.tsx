@@ -70,7 +70,7 @@ export const Select = React.forwardRef(function Select<TValue extends {}, Multip
     slotProps = {
       root: {},
       listbox: {},
-      popper: {},
+      popup: {},
     },
     ...other
   } = props;
@@ -96,8 +96,8 @@ export const Select = React.forwardRef(function Select<TValue extends {}, Multip
           className:
             'text-sm box-border p-0 mb-3 rounded-sm overflow-auto outline-0 bg-[rgb(14,20,27)] border border-solid border-gray-700 text-gray-300 shadow-[0_1px_2px_#a0aab4] max-h-[240px]',
         },
-        popper: {
-          ...slotProps.popper,
+        popup: {
+          ...slotProps.popup,
           className: 'z-[1]',
         },
       }}
