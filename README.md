@@ -1,6 +1,10 @@
-# Base UI - Next.js App Router with Tailwind CSS example in TypeScript
+# Base UI - Vite.js example with Tailwind CSS
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped using [`create-next-app`](https://github.com/vercel/next.js/tree/HEAD/packages/create-next-app) with Base UI installed and Tailwind CSS for styles.
+[Base UI](https://mui.com/base-ui/) is a library of unstyled React UI components and hooks.
+
+[Vite](https://vitejs.dev/) is a build tool that aims to provide a faster and leaner development experience for modern web projects, consisting of a dev server and a build command
+
+[Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework that provides low-level CSS classes that can be composed to build custom UI designs.
 
 ## How to use
 
@@ -9,28 +13,21 @@ Download the example [or clone the repo](https://github.com/mui/material-ui):
 <!-- #default-branch-switch -->
 
 ```bash
-curl https://codeload.github.com/mui/material-ui/tar.gz/next | tar -xz --strip=2 material-ui-next/examples/base-ui-nextjs-tailwind-ts
-cd base-ui-nextjs-tailwind-ts
+curl https://codeload.github.com/mui/material-ui/tar.gz/next | tar -xz --strip=2 material-ui-next/examples/base-ui-vite-tailwind
+cd base-ui-vite-tailwind
 ```
 
 Install it and run:
 
 ```bash
 npm install
-npm run dev
+npm start
 ```
 
-or
+or:
 
 <!-- #default-branch-switch -->
 
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/next/examples/base-ui-nextjs-tailwind-ts)
+[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/next/examples/base-ui-vite-tailwind)
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/next/examples/base-ui-nextjs-tailwind-ts)
-
-## Learn more
-
-To learn more about this example:
-
-- [Next.js documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Customizing Base UI](https://mui.com/base-ui/getting-started/customization/) - strategies for styling and customizing Base UI.
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/next/examples/base-ui-vite-tailwind)
