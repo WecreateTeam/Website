@@ -25,7 +25,6 @@
     "@mui/icons-material": "latest",
     "@emotion/styled": "latest",
     "@emotion/react": "latest",
-    "typescript": "latest",
-    "next": "latest"
+    "typescript": "latest"
   }
 }
