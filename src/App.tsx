@@ -80,11 +80,11 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
+      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
       <Router>
         <Routes>
           <Route path="/" element={
             <React.Fragment>
-              <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
               <Hero />
               <Box sx={{ bgcolor: 'background.default' }}>
                 <LogoCollection />

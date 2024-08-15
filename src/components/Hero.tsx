@@ -72,11 +72,11 @@ export default function Hero() {
             sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
           >
         
-            <Button variant="text" color="primary">
+            <Button variant="text" color="primary" href="https://discord.gg/wecreate">
               Discord
             </Button>
-            <Button variant="contained" color="primary">
-              Our Store
+            <Button variant="contained" color="primary" href="/products">
+              Our Products
             </Button>
           </Stack>
         </Stack>

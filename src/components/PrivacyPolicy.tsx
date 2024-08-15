@@ -1,23 +1,24 @@
 import * as React from 'react';
-import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material';
+import { CssBaseline, Box, Typography, Container } from '@mui/material';
 import AppAppBar from './AppAppBar';
-import Hero from './Hero';
 import Footer from './Footer';
 
 export default function PrivacyPolicy() {
-  const defaultTheme = createTheme();
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
-  const LPtheme = React.useMemo(() => getLPTheme(mode), [mode]);
-
-  const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  };
-
   return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <CssBaseline />
-      <Hero />
-      <Box sx={{ bgcolor: 'background.default' }}>
-        <Footer />
-      </Box>
+      <AppAppBar />
+      <Container maxWidth="md" sx={{ flexGrow: 1 }}>
+        <Box sx={{ padding: 10, my: 4 }}>
+          <Typography variant="h4" gutterBottom>
+            Privacy Policy
+          </Typography>
+          <Typography variant="body1" paragraph>
+            This is the main content of your privacy policy. You can add more detailed information here.
+          </Typography>
+        </Box>
+      </Container>
+      <Footer />
+    </Box>
   );
 }

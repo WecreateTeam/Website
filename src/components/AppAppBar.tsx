@@ -10,8 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import ToggleColorMode from './ToggleColorMode';
-import PrivacyPolicy from './PrivacyPolicy';
-import TermsOfService from './TermsOfService';
 
 const logoStyle = {
   width: '40px',
@@ -45,9 +43,10 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
   };
 
   const menuItems = [
-    { label: 'Features', id: 'features' },
+    { label: 'Home', id: 'home' },
+    { label: 'Products', id: 'products' },
+    { label: 'Team', id: 'team' },
     { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Highlights', id: 'highlights' },
     { label: 'FAQ', id: 'faq' },
   ];
 
