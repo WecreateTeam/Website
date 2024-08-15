@@ -7,11 +7,12 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
-import AppAppBar from './components/AppAppBar';
+import HomeAppBar from './components/HomeAppBar';
 import Hero from './components/Hero';
 import LogoCollection from './components/LogoCollection';
 import Highlights from './components/Highlights';
 import Features from './components/Features';
+import ProductsPreview from './components/ProductsPreview';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -19,6 +20,8 @@ import getLPTheme from './getLPTheme';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import ProductsPage from './components/ProductsPage';
+import ProductDetails from './components/ProductDetails';
 
 interface ToggleCustomThemeProps {
   showCustomTheme: Boolean;
@@ -52,13 +55,7 @@ function ToggleCustomTheme({
             pointerEvents: 'none',
           },
         }}
-      >
-        <ToggleButton value>
-          <AutoAwesomeRoundedIcon sx={{ fontSize: '20px', mr: 1 }} />
-          Custom theme
-        </ToggleButton>
-        <ToggleButton value={false}>Material Design 2</ToggleButton>
-      </ToggleButtonGroup>
+      />
     </Box>
   );
 }
@@ -80,15 +77,16 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+      <HomeAppBar mode={mode} toggleColorMode={toggleColorMode} />
       <Router>
         <Routes>
           <Route path="/" element={
             <React.Fragment>
               <Hero />
               <Box sx={{ bgcolor: 'background.default' }}>
+                <ProductsPreview />
+                <Divider />
                 <LogoCollection />
-                <Features />
                 <Divider />
                 <Testimonials />
                 <Divider />
@@ -107,6 +105,8 @@ export default function LandingPage() {
           } />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/products" element={<ProductsPreview />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </Router>
     </ThemeProvider>

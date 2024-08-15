@@ -17,12 +17,12 @@ const logoStyle = {
   cursor: 'pointer',
 };
 
-interface AppAppBarProps {
+interface RedirectAppBarProps {
   mode: PaletteMode;
   toggleColorMode: () => void;
 }
 
-function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
+function RedirectAppBar({ mode, toggleColorMode }: RedirectAppBarProps) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -30,24 +30,11 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'smooth',
-      });
-      setOpen(false);
-    }
+    window.location.href = '/'+sectionId;
   };
 
   const menuItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Products', id: 'products' },
-    { label: 'Team', id: 'team' },
-    { label: 'Testimonials', id: 'testimonials' },
-    { label: 'FAQ', id: 'faq' },
+    { label: 'Home', id: '' },
   ];
 
   return (
@@ -60,7 +47,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
         mt: 2,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="10px">
         <Toolbar
           variant="regular"
           sx={(theme) => ({
@@ -157,4 +144,4 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
   );
 }
 
-export default AppAppBar;
+export default RedirectAppBar;

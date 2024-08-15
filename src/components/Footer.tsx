@@ -10,9 +10,9 @@ import Typography from '@mui/material/Typography';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
 
-import FacebookIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
+import DiscordIcon from './DiscordIcon';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const logoStyle = {
   width: '50px',
@@ -185,32 +185,32 @@ export default function Footer() {
           spacing={1}
           useFlexGap
           sx={{
-            color: 'text.secondary',
+            color: 'text.primary',
           }}
         >
           <IconButton
             color="inherit"
-            href="https://github.com/mui"
-            aria-label="GitHub"
+            href="https://discord.gg/wecreate"
+            aria-label="Discord"
             sx={{ alignSelf: 'center' }}
           >
-            <FacebookIcon />
+            <DiscordIcon />
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://x.com/MaterialUI"
-            aria-label="X"
+            href="https://github.com/WecreateTeam"
+            aria-label="Github"
             sx={{ alignSelf: 'center' }}
           >
-            <TwitterIcon />
+            <GitHubIcon />
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="LinkedIn"
+            href="https://www.youtube.com/@Wecreate5M"
+            aria-label="YouTube"
             sx={{ alignSelf: 'center' }}
           >
-            <LinkedInIcon />
+            <YouTubeIcon />
           </IconButton>
         </Stack>
       </Box>

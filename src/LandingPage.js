@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AppAppBar from './components/AppAppBar';
+import HomeAppBar from './components/HomeAppBar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import Team from './components/Team';
@@ -21,7 +21,7 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <AppAppBar disableThemeSwitch={true} />
+      <HomeAppBar disableThemeSwitch={true} />
       <Hero />
       <Box sx={{ bgcolor: 'background.default' }}>
         <Features />
