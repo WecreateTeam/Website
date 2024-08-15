@@ -7,21 +7,23 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import PrivacyPolicy from './PrivacyPolicy';
+import TermsOfService from './TermsOfService';
 
 import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 
 const logoStyle = {
-  width: '140px',
-  height: 'auto',
+  width: '50px',
+  height: '50px',
 };
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {'Copyright © '}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <Link href="https://discord.gg/wecreate">Wecreate&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -59,10 +61,10 @@ export default function Footer() {
             <Box sx={{ ml: '-15px' }}>
               <img
                 src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                  'https://i.imgur.com/DXpcXDA.png'
                 }
                 style={logoStyle}
-                alt="logo of sitemark"
+                alt="logo of Wecreate"
               />
             </Box>
             <Typography variant="body2" fontWeight={600} gutterBottom>
@@ -111,9 +113,6 @@ export default function Footer() {
             Highlights
           </Link>
           <Link color="text.secondary" href="#">
-            Pricing
-          </Link>
-          <Link color="text.secondary" href="#">
             FAQs
           </Link>
         </Box>
@@ -153,7 +152,7 @@ export default function Footer() {
           <Link color="text.secondary" href="#">
             Privacy
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://discord.gg/wecreate">
             Contact
           </Link>
         </Box>
@@ -169,13 +168,13 @@ export default function Footer() {
         }}
       >
         <div>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="/privacy">
             Privacy Policy
           </Link>
           <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
             &nbsp;•&nbsp;
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="/terms">
             Terms of Service
           </Link>
           <Copyright />
