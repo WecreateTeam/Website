@@ -15,25 +15,25 @@ import getLPTheme from './getLPTheme';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
 export default function LandingPage() {
-  const defaultTheme = createTheme();
+	const defaultTheme = createTheme();
 
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <HomeAppBar disableThemeSwitch={true} />
-      <Hero />
-      <Box sx={{ bgcolor: 'background.default' }}>
-        <Features />
-        <Divider />
-        <Testimonials />
-        <Divider />
-        <Products />
-        <Divider />
-        <Divider />
-        <FAQs />
-        <Divider />
-        <Footer />
-      </Box>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={defaultTheme}>
+			<CssBaseline />
+			<HomeAppBar disableThemeSwitch={true} />
+			<Hero />
+			<Box sx={{ bgcolor: 'background.default' }}>
+				<Features />
+				<Divider />
+				<Testimonials />
+				<Divider />
+				<Products />
+				<Divider />
+				<Divider />
+				<FAQs />
+				<Divider />
+				<Footer />
+			</Box>
+		</ThemeProvider>
+	);
 }

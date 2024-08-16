@@ -1,31 +1,33 @@
 {
-  "name": "base-ui-vite-tailwind",
-  "private": true,
-  "version": "5.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@mui/base": "next",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-router-dom": "^6.26.1"
-  },
-  "devDependencies": {
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@vitejs/plugin-react": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest",
-    "vite": "latest"
-  }
+	"name": "base-ui-vite-tailwind",
+	"private": true,
+	"version": "5.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@mui/base": "next",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-router-dom": "^6.26.1"
+	},
+	"devDependencies": {
+		"@emotion/react": "latest",
+		"@emotion/styled": "latest",
+		"@mui/icons-material": "^5.16.7",
+		"@mui/material": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"@vitejs/plugin-react": "latest",
+		"autoprefixer": "latest",
+		"postcss": "latest",
+		"tailwindcss": "latest",
+		"typescript": "latest",
+		"vite": "latest",
+		"prettier": "latest"
+	}
 }
