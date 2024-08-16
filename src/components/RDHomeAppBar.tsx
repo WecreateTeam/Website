@@ -52,7 +52,7 @@ function RDHomeAppBar() {
   };
 
   const menuItems = [
-    { label: 'Home', id: '//' },
+    { label: 'Home', path: '/' },
   ];
 
   const handleItemClick = (item: { id: string; url?: string }) => {
