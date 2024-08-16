@@ -13,6 +13,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import Footer from './Footer'; // Import the Footer component
 
 const items = [
   {
@@ -92,8 +93,14 @@ export default function ProductsPage() {
   };
 
   return (
-    <Box sx={{ color: '#fff', minHeight: '100vh', py: 4 }}>
-      <Container maxWidth="lg">
+    <Box sx={{ 
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      color: '#fff',
+      py: 4 
+    }}>
+      <Container maxWidth="lg" sx={{ flex: 1 }}>
         <Typography 
           variant="h4" 
           sx={{ 
@@ -274,6 +281,7 @@ export default function ProductsPage() {
           ))}
         </Grid>
       </Container>
+      <Footer /> {/* Add the Footer component here */}
     </Box>
   );
 }

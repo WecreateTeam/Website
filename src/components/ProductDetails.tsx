@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckIcon from '@mui/icons-material/Check';
+import Footer from './Footer'; // Import the Footer component
 
 // Mock data - replace with actual data fetching logic
 const productData = {
@@ -62,12 +63,14 @@ export default function ProductDetails() {
 
   return (
     <Box sx={{ 
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh', // Ensure the content takes at least the full viewport height
       color: '#fff', 
-      minHeight: '100vh', 
       pt: { xs: 12, sm: 12 },
       pb: 4 
     }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ flex: 1 }}> {/* Add flex: 1 to push footer to bottom */}
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <img src={product.image} alt={product.name} style={{ width: '100%', borderRadius: '12px' }} />
@@ -200,6 +203,7 @@ export default function ProductDetails() {
           </Typography>
         </Box>
       </Container>
+      <Footer /> {/* Add the Footer component here */}
     </Box>
   );
 }
