@@ -26,17 +26,8 @@ function RDHomeAppBar() {
 		setOpen(newOpen);
 	};
 
-	const scrollToSection = (sectionId: string) => {
-		const sectionElement = document.getElementById(sectionId);
-		const offset = 128;
-		if (sectionElement) {
-			const targetScroll = sectionElement.offsetTop - offset;
-			window.scrollTo({
-				top: targetScroll,
-				behavior: 'smooth'
-			});
-			setOpen(false);
-		}
+	const redirectToPage = (page: string) => {
+		window.location.href = page;
 	};
 
 	const handleDiscordClick = () => {
@@ -96,10 +87,15 @@ function RDHomeAppBar() {
 							ml: '-10',
 							px: 0
 						}}>
-						<img src="https://i.imgur.com/DXpcXDA.png" style={logoStyle} alt="logo of Wecreate" />
+						<img
+							src="assets/logo.png"
+							style={logoStyle}
+							alt="Wecreate logo"
+							onClick={() => (window.location.href = '/')}
+						/>
 						<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 							{menuItems.map((item) => (
-								<MenuItem key={item.id} onClick={() => handleItemClick(item)} sx={{ py: '6px', px: '12px' }}>
+								<MenuItem key={item.label} onClick={() => redirectToPage(item.path)} sx={{ py: '6px', px: '12px' }}>
 									<Typography variant="body2" color="text.primary">
 										{item.label}
 									</Typography>

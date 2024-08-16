@@ -101,7 +101,7 @@ function HomeAppBar() {
 							ml: '-10',
 							px: 0
 						}}>
-						<img src="https://i.imgur.com/DXpcXDA.png" style={logoStyle} alt="logo of Wecreate" />
+						<img src="assets/logo.png" style={logoStyle} alt="Wecreate logo" />
 						<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 							{menuItems.map((item) => (
 								<MenuItem key={item.id} onClick={() => handleItemClick(item)} sx={{ py: '6px', px: '12px' }}>

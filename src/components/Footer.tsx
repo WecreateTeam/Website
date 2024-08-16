@@ -56,7 +56,12 @@ export default function Footer() {
 					}}>
 					<Box sx={{ width: { xs: '100%', sm: '60%' } }}>
 						<Box sx={{ ml: '0' }}>
-							<img src={'https://i.imgur.com/DXpcXDA.png'} style={logoStyle} alt="logo of Wecreate" />
+							<img
+								src="assets/logo.png"
+								style={logoStyle}
+								alt="Wecreate logo"
+								onClick={() => (window.location.href = '/')}
+							/>
 						</Box>
 						<Typography variant="body2" fontWeight={600} gutterBottom>
 							Newsletter
