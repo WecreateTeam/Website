@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,17 +16,28 @@ const items = [
     title: 'Gang Spray System',
     category: 'Script',
     price: '35.00 GBP',
+    buyNowLink: 'https://example.com/buy/gang-spray-system',
   },
 ];
 
 export default function ProductsPreview() {
+  const navigate = useNavigate();
+
+  const handleBuyNow = (buyNowLink: string) => {
+    window.open(buyNowLink, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleDetails = (id: string) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        pt: { xs: 4, sm: 8 },
+        pt: { xs: 12, sm: 15 }, // Increased padding-top for mobile
         pb: { xs: 12, sm: 24 },
         color: '#fff',
       }}
@@ -34,12 +45,17 @@ export default function ProductsPreview() {
       <Container maxWidth="lg">
         <Typography
           variant="h4"
-          sx={{ mb: 5, fontWeight: 'bold', alignSelf: 'flex-start' }}
+          sx={{
+            mb: { xs: 6, sm: 5 }, // Increased margin-bottom for mobile
+            mt: { xs: 4, sm: 0 },
+            fontWeight: 'bold',
+            alignSelf: 'flex-start',
+          }}
         >
           Our Products
         </Typography>
         <Grid container spacing={3}>
-          {items.map(({ id, image, title, category, price }, index) => (
+          {items.map(({ id, image, title, category, price, buyNowLink }, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Card
                 sx={{
@@ -47,6 +63,7 @@ export default function ProductsPreview() {
                   borderRadius: '12px',
                   overflow: 'hidden',
                   position: 'relative',
+                  mt: { xs: 4, sm: 0 }, // Added margin-top for mobile
                 }}
               >
                 <CardMedia
@@ -72,29 +89,51 @@ export default function ProductsPreview() {
                 >
                   NEW RELEASE
                 </Box>
-                <CardContent sx={{ p: 2 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                <CardContent sx={{ p: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
                     {category}
                   </Typography>
-                  <Typography variant="h6" component="h3" sx={{ mb: 1 }}>
+                  <Typography variant="h6" component="h3" sx={{ mb: 0.5, lineHeight: 1.2 }}>
                     {title}
                   </Typography>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
-                    <Button 
-                      component={RouterLink}
-                      to={`/product/${id}`}
-                      variant="contained" 
-                      sx={{ 
-                        backgroundColor: '#ff9800',
-                        color: '#fff',
-                        '&:hover': { backgroundColor: '#ffcc00' },
-                      }}
-                    >
-                      Buy Now
-                    </Button>
-                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                      {price}
-                    </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    {price}
+                  </Typography>
+                  <Box sx={{ mt: 'auto' }}>
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Button 
+                        variant="contained" 
+                        size="small"
+                        sx={{ 
+                          flex: 1,
+                          backgroundColor: '#ff9800',
+                          color: '#fff',
+                          '&:hover': { backgroundColor: '#ffcc00' },
+                          fontSize: '0.75rem',
+                          padding: '4px 8px',
+                        }}
+                        onClick={() => handleBuyNow(buyNowLink)}
+                      >
+                        Buy Now
+                      </Button>
+                      {id === '1' && (
+                        <Button 
+                          variant="outlined" 
+                          size="small"
+                          sx={{ 
+                            flex: 1,
+                            borderColor: '#ff9800',
+                            color: '#ff9800',
+                            '&:hover': { borderColor: '#ffcc00', color: '#ffcc00' },
+                            fontSize: '0.75rem',
+                            padding: '4px 8px',
+                          }}
+                          onClick={() => handleDetails(id)}
+                        >
+                          Details
+                        </Button>
+                      )}
+                    </Box>
                   </Box>
                 </CardContent>
               </Card>

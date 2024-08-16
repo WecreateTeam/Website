@@ -105,7 +105,7 @@ export default function LandingPage() {
           } />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/products" element={<ProductsPreview />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </Router>

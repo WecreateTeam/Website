@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -14,7 +14,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
-// Assuming you have more items in your actual data
 const items = [
   {
     id: '1',
@@ -22,13 +21,41 @@ const items = [
     title: 'Gang Spray System',
     category: 'Script',
     price: '35.00 GBP',
+    type: 'gang',
+    tag: 'NEW RELEASE',
+    description: 'A comprehensive gang territory management system for your FiveM server.',
+    features: [
+      'Dynamic territory control',
+      'Customizable spray patterns',
+      'Integrated gang warfare mechanics',
+      'Leaderboard and statistics tracking'
+    ],
+    isAvailable: true,
+    buyNowLink: 'https://example.com/buy/gang-spray-system'
   },
-  // Add more items here...
+  {
+    id: '2',
+    image: 'https://via.placeholder.com/150',
+    title: 'Mirror Park Police Station',
+    category: 'MLO',
+    price: '50.00 GBP',
+    type: 'police',
+    tag: 'COMING SOON',
+    description: 'A feature-rich Mobile Data Terminal (MDT) system for law enforcement roleplay.',
+    features: [
+      'Real-time criminal database',
+      'Vehicle registration lookup',
+      'Integrated dispatch system',
+      'Officer status management',
+      'Customizable report templates'
+    ],
+    isAvailable: false
+  }
 ];
 
 export default function ProductsPage() {
   const [search, setSearch] = useState('');
-  const [products, setproducts] = useState('');
+  const [productType, setProductType] = useState('');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
@@ -36,21 +63,63 @@ export default function ProductsPage() {
     navigate(`/product/${id}`);
   };
 
+  const filteredItems = useMemo(() => {
+    return items.filter((item) => {
+      const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
+      const matchesProductType = productType === '' || item.category.toLowerCase() === productType.toLowerCase();
+      const matchesCategory = category === '' || item.type.toLowerCase() === category.toLowerCase();
+      return matchesSearch && matchesProductType && matchesCategory;
+    });
+  }, [search, productType, category]);
+
+  const handleBuyNow = (item) => {
+    if (item.isAvailable) {
+      if (item.id === '1') {
+        navigate(`/product/${item.id}`);
+      } else if (item.buyNowLink) {
+        window.open(item.buyNowLink, '_blank', 'noopener,noreferrer');
+      }
+    }
+  };
+
+  const handleDetails = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigate(`/product/${id}`);
+  };
+
+  const handleAvailableSoon = () => {
+    window.open('https://discord.gg/wecreate', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <Box sx={{ color: '#fff', minHeight: '100vh', py: 4 }}>
       <Container maxWidth="lg">
-        <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
-          Script
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            mb: 4, 
+            textAlign: 'center',
+            pt: { xs: 8, sm: 10, md: 12 },
+            fontWeight: 'bold'
+          }}
+        >
+          Our Products 
         </Typography>
         
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 4 }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', sm: 'row' },
+          justifyContent: 'space-between', 
+          mb: 4,
+          gap: 2
+        }}>
           <TextField
             placeholder="Search..."
             variant="outlined"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             sx={{ 
-              width: '30%',
+              width: { xs: '100%', sm: '30%' },
               borderRadius: '4px',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': { borderColor: '#444' },
@@ -60,15 +129,14 @@ export default function ProductsPage() {
               '& .MuiInputBase-input': { color: '#fff' },
             }}
           />
-          <FormControl variant="outlined" sx={{ width: '30%' }}>
+          <FormControl variant="outlined" sx={{ width: { xs: '100%', sm: '30%' } }}>
             <InputLabel id="products-label" sx={{ color: '#888' }}>All Products</InputLabel>
             <Select
               labelId="products-label"
-              value={products}
-              onChange={(e) => setproducts(e.target.value)}
+              value={productType}
+              onChange={(e) => setProductType(e.target.value)}
               label="All Products"
               sx={{ 
-
                 color: '#fff',
                 '& .MuiOutlinedInput-notchedOutline': { borderColor: '#444' },
                 '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#666' },
@@ -76,11 +144,11 @@ export default function ProductsPage() {
               }}
             >
               <MenuItem value="">All products</MenuItem>
-              <MenuItem value="male">Scripts</MenuItem>
-              <MenuItem value="female">MLOs</MenuItem>
+              <MenuItem value="script">Scripts</MenuItem>
+              <MenuItem value="mlo">MLOs</MenuItem>
             </Select>
           </FormControl>
-          <FormControl variant="outlined" sx={{ width: '30%' }}>
+          <FormControl variant="outlined" sx={{ width: { xs: '100%', sm: '30%' } }}>
             <InputLabel id="category-label" sx={{ color: '#888' }}>All Categories</InputLabel>
             <Select
               labelId="category-label"
@@ -89,7 +157,6 @@ export default function ProductsPage() {
               label="All Categories"
               sx={{ 
                 color: '#fff',
-                backgroundColor: '#2a2a2a',
                 '& .MuiOutlinedInput-notchedOutline': { borderColor: '#444' },
                 '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#666' },
                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#888' },
@@ -104,7 +171,7 @@ export default function ProductsPage() {
         </Box>
         
         <Grid container spacing={3}>
-          {items.map(({ id, image, title, category, price }, index) => (
+          {filteredItems.map(({ id, image, title, category, price, tag, description, features, isAvailable, buyNowLink }, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Card 
                 sx={{
@@ -137,7 +204,7 @@ export default function ProductsPage() {
                     zIndex: 1,
                   }}
                 >
-                  NEW RELEASE
+                  {tag}
                 </Box>
                 <CardContent sx={{ p: 2 }}>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
@@ -147,20 +214,56 @@ export default function ProductsPage() {
                     {title}
                   </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
-                    <Button 
-                      variant="contained" 
-                      sx={{ 
-                        backgroundColor: '#ff9800',
-                        color: '#fff',
-                        '&:hover': { backgroundColor: '#ffcc00' },
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleProductClick(id);
-                      }}
-                    >
-                      Buy Now
-                    </Button>
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      {id === '1' && (
+                        <>
+                          <Button 
+                            variant="contained" 
+                            size="small"
+                            sx={{ 
+                              backgroundColor: '#ff9800',
+                              color: '#fff',
+                              '&:hover': { backgroundColor: '#ff9800' },
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleBuyNow(buyNowLink);
+                            }}
+                          >
+                            Buy Now
+                          </Button>
+                          <Button 
+                            variant="outlined" 
+                            size="small"
+                            sx={{ 
+                              borderColor: '#ff9800',
+                              color: '#ff9800',
+                              '&:hover': { borderColor: '#ff9800', color: '#ff9800' },
+                            }}
+                            onClick={(e) => handleDetails(id, e)}
+                          >
+                            Details
+                          </Button>
+                        </>
+                      )}
+                      {id === '2' && (
+                        <Button 
+                          variant="contained" 
+                          size="small"
+                          sx={{ 
+                            backgroundColor: '#ff9800',
+                            color: '#fff',
+                            '&:hover': { backgroundColor: '#ff9800' },
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleAvailableSoon();
+                          }}
+                        >
+                          Available Soon
+                        </Button>
+                      )}
+                    </Box>
                     <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                       {price}
                     </Typography>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { PaletteMode } from '@mui/material';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
-import ToggleColorMode from './ToggleColorMode';
 import IconButton from '@mui/material/IconButton';
 import DiscordIcon from './DiscordIcon';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -21,12 +19,7 @@ const logoStyle = {
   cursor: 'pointer',
 };
 
-interface HomeAppBarProps {
-  mode: PaletteMode;
-  toggleColorMode: () => void;
-}
-
-function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
+function HomeAppBar() {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -59,9 +52,8 @@ function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
   };
 
   const menuItems = [
-    { label: 'Products', id: 'products' },
+    { label: 'Products', id: 'product' },
     { label: 'Documentation', id: 'docs', url: 'https://docs.example.com' },
-    { label: 'Team', id: 'team' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'FAQ', id: 'faq' },
   ];
@@ -94,18 +86,12 @@ function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
             justifyContent: 'space-between',
             flexShrink: 0,
             borderRadius: '999px',
-            bgcolor:
-              theme.palette.mode === 'light'
-                ? 'rgba(255, 255, 255, 0.4)'
-                : 'rgba(0, 0, 0, 0.4)',
+            bgcolor: 'rgba(0, 0, 0, 0.4)',
             backdropFilter: 'blur(24px)',
             maxHeight: 40,
             border: '1px solid',
             borderColor: 'divider',
-            boxShadow:
-              theme.palette.mode === 'light'
-                ? `0 0 1px rgba(85, 166, 246, 0.1), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)`
-                : '0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
+            boxShadow: '0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
           })}
         >
           <Box
@@ -113,7 +99,7 @@ function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
               flexGrow: 1,
               display: 'flex',
               alignItems: 'center',
-              ml: '-18px',
+              ml: '-10',
               px: 0,
             }}
           >
@@ -155,7 +141,6 @@ function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
             >
               <YouTubeIcon />
             </IconButton>
-            <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
           </Box>
           <Box sx={{ display: { sm: 'block', md: 'none' } }}>
             <Button
@@ -176,16 +161,6 @@ function HomeAppBar({ mode, toggleColorMode }: HomeAppBarProps) {
                   flexGrow: 1,
                 }}
               >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-end',
-                    mb: 2,
-                  }}
-                >
-                  <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-                </Box>
                 {menuItems.map((item) => (
                   <MenuItem key={item.id} onClick={() => handleItemClick(item)}>
                     {item.label}

@@ -58,7 +58,7 @@ export default function Footer() {
           }}
         >
           <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
-            <Box sx={{ ml: '-15px' }}>
+            <Box sx={{ ml: '0' }}>
               <img
                 src={
                   'https://i.imgur.com/DXpcXDA.png'
@@ -103,9 +103,6 @@ export default function Footer() {
           <Typography variant="body2" fontWeight={600}>
             Product
           </Typography>
-          <Link color="text.secondary" href="#">
-            Features
-          </Link>
           <Link color="text.secondary" href="#">
             Testimonials
           </Link>

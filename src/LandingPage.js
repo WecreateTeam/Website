@@ -8,7 +8,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import HomeAppBar from './components/HomeAppBar';
 import Hero from './components/Hero';
 import Products from './components/Products';
-import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 import FAQs from './components/FAQs';
 import Footer from './components/Footer';
@@ -30,7 +29,6 @@ export default function LandingPage() {
         <Divider />
         <Products />
         <Divider />
-        <Team />
         <Divider />
         <FAQs />
         <Divider />

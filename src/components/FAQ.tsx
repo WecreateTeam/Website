@@ -62,9 +62,8 @@ export default function FAQ() {
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
               You can reach our customer support team by emailing
-              <Link> support@email.com </Link>
-              or calling our toll-free number. We&apos;re here to assist you
-              promptly.
+              <Link> wecreateteam@hotmail.com </Link>
+              or contacting us through our live chat on the site, aswell as ticketing system in your Discord server.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -78,7 +77,7 @@ export default function FAQ() {
             id="panel2d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
+              What is the refund policy?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -87,9 +86,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re not
-              completely satisfied, you can return the product within [number of
-              days] days for a full refund or exchange.
+              We do not offer refunds at all; as we know our products are working, and are built for performance and perfection its what we strive to do. If you experiencing the product purchased not working to expected standard please; contact through our Discord server. We are happy to help!
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -103,7 +100,7 @@ export default function FAQ() {
             id="panel3d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              What makes your product stand out from others in the market?
+              How do I install purchased resources?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -112,9 +109,9 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Our product distinguishes itself through its adaptability, durability,
-              and innovative features. We prioritize user satisfaction and
-              continually strive to exceed expectations in every aspect.
+              After purchasing our resource on our site, go to <Link>FiveM’s keymaster site </Link>
+              then go to <Link>Granted Assets</Link> Click on the download button and then move the file to your resource server. 
+              Following: Check our documentation for more information on how to install the resource purchased.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -128,7 +125,7 @@ export default function FAQ() {
             id="panel4d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
+              What is CFX Assets Escrow?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -137,10 +134,10 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Yes, our product comes with a [length of warranty] warranty. It covers
-              defects in materials and workmanship. If you encounter any issues
-              covered by the warranty, please contact our customer support for
-              assistance.
+              Our resources are fully integrated with CFX and Tebex Store, utilizing their protection
+              and licensing systems. Through a partnership with Tebex, we use the Escrow system as a
+              secure alternative to obfuscation and IP blocking. This system ensures that ownership of the purchased content is guaranteed, 
+              allowing it to run exclusively on the buyer's server.
             </Typography>
           </AccordionDetails>
         </Accordion>

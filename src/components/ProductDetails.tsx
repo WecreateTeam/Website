@@ -8,25 +8,52 @@ import CheckIcon from '@mui/icons-material/Check';
 
 // Mock data - replace with actual data fetching logic
 const productData = {
-  id: '1',
-  name: 'Gang Spray System',
-  category: 'Script',
-  price: '34.31 GBP',
-  image: 'https://via.placeholder.com/500',
-  description: 'Feel free to test it before purchasing, Using our test server',
-  connectionInstructions: 'Manual Connect : wecreateserver.com in your client FB console fivem command /setped codename to spawn the ped.',
-  videoThumbnail: 'https://via.placeholder.com/1280x720',
-  buyNowLink: 'https://example.com/buy/gang-spray-system',
-  connectLink: 'https://example.com/connect/gang-spray-system',
+  '1': {
+    id: '1',
+    name: 'Gang Spray System',
+    category: 'Script',
+    price: '35.00 GBP',
+    image: 'https://via.placeholder.com/500',
+    description: 'A comprehensive gang territory management system for your FiveM server.',
+    connectionInstructions: 'Manual Connect : wecreateserver.com in your client FB console fivem command /setped codename to spawn the ped.',
+    videoThumbnail: 'https://via.placeholder.com/1280x720',
+    buyEscrowLink: 'https://example.com/buy/gang-spray-system/escrow',
+    buyOpenSourceLink: 'https://example.com/buy/gang-spray-system/open-source',
+    connectLink: 'https://example.com/connect/gang-spray-system',
+    features: [
+      'Dynamic territory control',
+      'Customizable spray patterns',
+      'Integrated gang warfare mechanics',
+      'Leaderboard and statistics tracking'
+    ]
+  },
+  '2': {
+    id: '2',
+    name: 'Advanced Police MDT',
+    category: 'Script',
+    price: '45.00 GBP',
+    image: 'https://via.placeholder.com/500',
+    description: 'A feature-rich Mobile Data Terminal (MDT) system for law enforcement roleplay.',
+    connectionInstructions: 'Connect to our test server at policemdttest.wecreateserver.com and use the command /mdt to access the system.',
+    videoThumbnail: 'https://via.placeholder.com/1280x720',
+    connectLink: 'https://example.com/connect/advanced-police-mdt',
+    isAvailableSoon: true,
+    features: [
+      'Real-time criminal database',
+      'Vehicle registration lookup',
+      'Integrated dispatch system',
+      'Officer status management',
+      'Customizable report templates'
+    ]
+  }
 };
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
-  // In a real app, you would fetch the product data based on the id
-  const product = productData;
+  const product = productData[id as keyof typeof productData];
 
-  const handleBuyNow = () => {
-    window.open(product.buyNowLink, '_blank', 'noopener,noreferrer');
+  const handleBuy = (buyLink: string) => {
+    window.open(buyLink, '_blank', 'noopener,noreferrer');
   };
 
   const handleConnect = () => {
@@ -35,10 +62,9 @@ export default function ProductDetails() {
 
   return (
     <Box sx={{ 
-      backgroundColor: '#1a1a1a', 
       color: '#fff', 
       minHeight: '100vh', 
-      pt: { xs: 8, sm: 12 }, // Add top padding to push content down
+      pt: { xs: 12, sm: 12 },
       pb: 4 
     }}>
       <Container maxWidth="lg">
@@ -67,14 +93,6 @@ export default function ProductDetails() {
                 color="success"
                 startIcon={<CheckIcon />}
               >
-                Escrow Protected
-              </Button>
-              <Button 
-                variant="outlined" 
-                size="small" 
-                color="info"
-                startIcon={<CheckIcon />}
-              >
                 ESX
               </Button>
               <Button 
@@ -86,16 +104,63 @@ export default function ProductDetails() {
                 QBCore
               </Button>
             </Box>
-            <Button 
-              variant="contained" 
-              fullWidth 
-              sx={{ mt: 2 }}
-              onClick={handleBuyNow}
-            >
-              Buy Now
-            </Button>
+            <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+              {product.id === '1' ? (
+                <>
+                  <Button 
+                    variant="contained" 
+                    fullWidth 
+                    sx={{ 
+                      backgroundColor: '#ff9800',
+                      '&:hover': { backgroundColor: '#ffcc00' },
+                    }}
+                    onClick={() => handleBuy(product.buyEscrowLink)}
+                  >
+                    Buy Escrow
+                  </Button>
+                  <Button 
+                    variant="contained" 
+                    fullWidth 
+                    sx={{ 
+                      backgroundColor: '#ff9800',
+                      '&:hover': { backgroundColor: '#ffcc00' },
+                    }}
+                    onClick={() => handleBuy(product.buyOpenSourceLink)}
+                  >
+                    Buy Open Source
+                  </Button>
+                </>
+              ) : (
+                <Button 
+                  variant="contained" 
+                  fullWidth 
+                  sx={{ 
+                    backgroundColor: '#ff9800',
+                    '&:hover': { backgroundColor: '#ffcc00' },
+                  }}
+                  onClick={() => window.open('https://discord.gg/wecreate', '_blank', 'noopener,noreferrer')}
+                >
+                  Available Soon
+                </Button>
+              )}
+            </Box>
           </Grid>
         </Grid>
+
+        {/* Features Section */}
+        <Box sx={{ mt: 8 }}>
+          <Typography variant="h5" sx={{ mb: 3, fontWeight: 'bold' }}>Features</Typography>
+          <Grid container spacing={2}>
+            {product.features.map((feature, index) => (
+              <Grid item xs={12} sm={6} key={index}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <CheckIcon sx={{ color: '#ff9800', mr: 2 }} />
+                  <Typography>{feature}</Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
         {/* Video Placeholder */}
         <Box sx={{ mt: 8, position: 'relative', cursor: 'pointer' }}>
@@ -131,7 +196,7 @@ export default function ProductDetails() {
               textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
             }}
           >
-            Gang Spray System
+            {product.name}
           </Typography>
         </Box>
       </Container>

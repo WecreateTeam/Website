@@ -21,9 +21,9 @@ const items = [
   },
   {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: 'Built to perform',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Discover unparalleled reliability with scripts designed for long-term performance and lasting value.',
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
@@ -58,8 +58,8 @@ export default function Highlights() {
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: 'white',
-        bgcolor: '#06090a',
+        // color: 'white',
+        // bgcolor: '#06090a',
       }}
     >
       <Container
@@ -78,7 +78,7 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4">
-            Highlights
+            Why choose us?
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
             Explore why our product stands out: adaptability, durability,
