@@ -22,6 +22,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import ProductsPage from './components/ProductsPage';
 import ProductDetails from './components/ProductDetails';
+import MavaWidget from './components/MavaWidget';
 
 interface ToggleCustomThemeProps {
   showCustomTheme: Boolean;
@@ -101,6 +102,7 @@ export default function LandingPage() {
                 showCustomTheme={showCustomTheme}
                 toggleCustomTheme={toggleCustomTheme}
               />
+              <MavaWidget />
             </React.Fragment>
           } />
           <Route path="/privacy" element={<PrivacyPolicy />} />
