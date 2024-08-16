@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { CssBaseline, Box, Typography, Container } from '@mui/material';
 import Footer from './Footer';
+import RDHomeAppBar from './RDHomeAppBar';
 
 export default function TermsOfService() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <CssBaseline />
+      <RDHomeAppBar />
       <Container maxWidth="md" sx={{ flexGrow: 1 }}>
         <Box sx={{ padding: 10, my: 4 }}>
         <Typography

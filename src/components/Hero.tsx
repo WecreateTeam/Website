@@ -7,8 +7,14 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import HomeAppBar from './HomeAppBar'; // Import HomeAppBar
 
-export default function Hero() {
+interface HeroProps {
+  mode: 'light' | 'dark';
+  toggleColorMode: () => void;
+}
+
+export default function Hero({ mode, toggleColorMode }: HeroProps) {
   return (
     <Box
       id="hero"
@@ -22,6 +28,7 @@ export default function Hero() {
         backgroundRepeat: 'no-repeat',
       })}
     >
+      <HomeAppBar mode={mode} toggleColorMode={toggleColorMode} />
       <Container
         sx={{
           display: 'flex',
@@ -71,7 +78,6 @@ export default function Hero() {
             useFlexGap
             sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
           >
-        
             <Button variant="text" color="primary" href="https://discord.gg/wecreate">
               Discord
             </Button>

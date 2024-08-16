@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { CssBaseline, Box, Typography, Container, Link } from '@mui/material';
-import HomeAppBar from './HomeAppBar';
+import RDHomeAppBar from './RDHomeAppBar';
 import Footer from './Footer';
 
 export default function PrivacyPolicy() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <CssBaseline />
-      <HomeAppBar />
+      <RDHomeAppBar />
       <Container maxWidth="md" sx={{ flexGrow: 1 }}>
         <Box sx={{ padding: 10, my: 4 }}>
         <Typography

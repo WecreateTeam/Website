@@ -14,6 +14,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Footer from './Footer'; // Import the Footer component
+import RDHomeAppBar from './RDHomeAppBar'; // Import RDHomeAppBar
 
 const items = [
   {
@@ -100,6 +101,7 @@ export default function ProductsPage() {
       color: '#fff',
       py: 4 
     }}>
+      <RDHomeAppBar /> {/* Add RDHomeAppBar here */}
       <Container maxWidth="lg" sx={{ flex: 1 }}>
         <Typography 
           variant="h4" 

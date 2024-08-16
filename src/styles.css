@@ -76,19 +76,6 @@ a {
   background-color: var(--secondary-color);
 }
 
-/* Form styles */
-input[type="text"],
-input[type="email"],
-textarea {
-  font-family: 'Inter', sans-serif;
-  font-size: 1em;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
 /* List styles */
 ul, ol {
   margin-bottom: 1em;

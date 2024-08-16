@@ -6,6 +6,7 @@ import {
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckIcon from '@mui/icons-material/Check';
 import Footer from './Footer'; // Import the Footer component
+import RDHomeAppBar from './RDHomeAppBar'; // Import RDHomeAppBar 
 
 // Mock data - replace with actual data fetching logic
 const productData = {
@@ -70,6 +71,7 @@ export default function ProductDetails() {
       pt: { xs: 12, sm: 12 },
       pb: 4 
     }}>
+      <RDHomeAppBar /> {/* Add RDHomeAppBar here */}
       <Container maxWidth="lg" sx={{ flex: 1 }}> {/* Add flex: 1 to push footer to bottom */}
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>

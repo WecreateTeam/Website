@@ -52,7 +52,7 @@ function HomeAppBar() {
   };
 
   const menuItems = [
-    { label: 'Products', id: 'product' },
+    { label: 'Products', id: 'products' },
     { label: 'Documentation', id: 'docs', url: 'https://docs.example.com' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'FAQ', id: 'faq' },
