@@ -53,7 +53,7 @@ function HomeAppBar() {
 
 	const menuItems = [
 		{ label: 'Products', id: 'products' },
-		{ label: 'Documentation', id: 'docs', url: 'https://docs.example.com' },
+		{ label: 'Documentation', id: 'docs', url: 'https://docs.wecreate5m.com' },
 		{ label: 'Testimonials', id: 'testimonials' },
 		{ label: 'FAQ', id: 'faq' }
 	];
