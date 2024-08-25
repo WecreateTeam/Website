@@ -9,10 +9,10 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
-
 import DiscordIcon from './DiscordIcon';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import logo from '../assets/logo.png';
 
 const logoStyle = {
 	width: '50px',
@@ -56,12 +56,7 @@ export default function Footer() {
 					}}>
 					<Box sx={{ width: { xs: '100%', sm: '60%' } }}>
 						<Box sx={{ ml: '0' }}>
-							<img
-								src="src\assets\logo.png"
-								style={logoStyle}
-								alt="Wecreate logo"
-								onClick={() => (window.location.href = '/')}
-							/>
+							<img src={logo} style={logoStyle} alt="Wecreate logo" onClick={() => (window.location.href = '/')} />
 						</Box>
 						<Typography variant="body2" fontWeight={600} gutterBottom>
 							Newsletter

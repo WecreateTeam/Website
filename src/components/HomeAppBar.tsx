@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import DiscordIcon from './DiscordIcon';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import logo from '../assets/logo.png';
 
 const logoStyle = {
 	width: '40px',
@@ -101,7 +102,7 @@ function HomeAppBar() {
 							ml: '-10',
 							px: 0
 						}}>
-						<img src="src\assets\logo.png" style={logoStyle} alt="Wecreate logo" />
+						<img src={logo} style={logoStyle} alt="Wecreate logo" />
 						<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 							{menuItems.map((item) => (
 								<MenuItem key={item.id} onClick={() => handleItemClick(item)} sx={{ py: '6px', px: '12px' }}>
