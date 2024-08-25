@@ -57,7 +57,7 @@ export default function Footer() {
 					<Box sx={{ width: { xs: '100%', sm: '60%' } }}>
 						<Box sx={{ ml: '0' }}>
 							<img
-								src="assets/logo.png"
+								src="src\assets\logo.png"
 								style={logoStyle}
 								alt="Wecreate logo"
 								onClick={() => (window.location.href = '/')}
