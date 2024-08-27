@@ -131,10 +131,10 @@ export default function Footer() {
 					<Typography variant="body2" fontWeight={600}>
 						Legal
 					</Typography>
-					<Link color="text.secondary" href="/TermsOfService">
+					<Link color="text.secondary" href="/terms">
 						Terms
 					</Link>
-					<Link color="text.secondary" href="/PrivacyPolicy">
+					<Link color="text.secondary" href="/privacy">
 						Privacy
 					</Link>
 					<Link color="text.secondary" href="https://discord.gg/wecreate">
@@ -152,13 +152,13 @@ export default function Footer() {
 					borderColor: 'divider'
 				}}>
 				<div>
-					<Link color="text.secondary" href="/PrivacyPolicy">
+					<Link color="text.secondary" href="/privacy">
 						Privacy Policy
 					</Link>
 					<Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
 						&nbsp;•&nbsp;
 					</Typography>
-					<Link color="text.secondary" href="/TermsOfService">
+					<Link color="text.secondary" href="/terms">
 						Terms of Service
 					</Link>
 					<Copyright />
