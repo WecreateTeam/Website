@@ -7,8 +7,8 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import PrivacyPolicy from './PrivacyPolicy';
-import TermsOfService from './TermsOfService';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 import DiscordIcon from './DiscordIcon';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -131,10 +131,10 @@ export default function Footer() {
 					<Typography variant="body2" fontWeight={600}>
 						Legal
 					</Typography>
-					<Link color="text.secondary" href="#">
+					<Link color="text.secondary" href="/TermsOfService">
 						Terms
 					</Link>
-					<Link color="text.secondary" href="#">
+					<Link color="text.secondary" href="/PrivacyPolicy">
 						Privacy
 					</Link>
 					<Link color="text.secondary" href="https://discord.gg/wecreate">
@@ -152,13 +152,13 @@ export default function Footer() {
 					borderColor: 'divider'
 				}}>
 				<div>
-					<Link color="text.secondary" href="/privacy">
+					<Link color="text.secondary" href="/PrivacyPolicy">
 						Privacy Policy
 					</Link>
 					<Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
 						&nbsp;•&nbsp;
 					</Typography>
-					<Link color="text.secondary" href="/terms">
+					<Link color="text.secondary" href="/TermsOfService">
 						Terms of Service
 					</Link>
 					<Copyright />

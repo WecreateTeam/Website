@@ -15,8 +15,9 @@ const productData = {
 		price: '35.00 GBP',
 		image: 'https://via.placeholder.com/500',
 		description: 'A comprehensive gang territory management system for your FiveM server.',
+		connecttitle: 'Wanting to test before purchasing?',
 		connectionInstructions:
-			'Manual Connect : wecreateserver.com in your client FB console fivem command /setped codename to spawn the ped.',
+			'Manual Connect : wecreateserver.com in your client FB console fivem command /setped codename to spawn the ped. Or click the button below which automatically connects',
 		videoThumbnail: 'https://via.placeholder.com/1280x720',
 		buyEscrowLink: 'https://example.com/buy/gang-spray-system/escrow',
 		buyOpenSourceLink: 'https://example.com/buy/gang-spray-system/open-source',
@@ -81,7 +82,17 @@ export default function ProductDetails() {
 						<img src={product.image} alt={product.name} style={{ width: '100%', borderRadius: '12px' }} />
 					</Grid>
 					<Grid item xs={12} md={6}>
-						<Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold' }}>
+						
+						<Typography 
+							variant="h4" 
+							gutterBottom 
+							sx={{ 
+								fontWeight: 'bold',
+								borderBottom: '2px solid #ff9800',
+								paddingBottom: '8px',
+								marginBottom: '16px'
+							}}
+						>
 							{product.name}
 						</Typography>
 						<Typography variant="subtitle1" gutterBottom>
@@ -93,16 +104,26 @@ export default function ProductDetails() {
 						<Typography variant="body1" paragraph>
 							{product.description}
 						</Typography>
-						<Button
-							variant="outlined"
-							size="small"
-							sx={{ mb: 2, color: '#ff9800', borderColor: '#ff9800' }}
-							onClick={handleConnect}>
-							CONNECT
-						</Button>
+						<Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+							{product.connecttitle}
+						</Typography>
 						<Typography variant="body2" paragraph>
 							{product.connectionInstructions}
 						</Typography>
+						<Button
+							variant="contained"
+							size="medium"
+							sx={{
+								mb: 2,
+								backgroundColor: '#ff9800',
+        						'&:hover': { backgroundColor: '#ffcc00' },
+								fontWeight: 'bold',
+								borderRadius: '20px',
+								padding: '8px 24px'
+							}}
+							onClick={handleConnect}>
+							CONNECT
+						</Button>
 						<Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
 							<Button variant="outlined" size="small" color="success" startIcon={<CheckIcon />}>
 								ESX
@@ -151,7 +172,12 @@ export default function ProductDetails() {
 					</Grid>
 				</Grid>
 				{/* Features Section */}
-				<Box sx={{ mt: 8 }}>
+				<Box sx={{ 
+					mt: 8, 
+					border: '1px solid #ff9800', 
+					borderRadius: '8px', 
+					padding: '16px' 
+				}}>
 					<Typography variant="h5" sx={{ mb: 3, fontWeight: 'bold' }}>
 						Features
 					</Typography>
